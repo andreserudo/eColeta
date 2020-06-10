@@ -1,0 +1,46 @@
+#page-dashboard {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+}
+
+#page-dashboard header {
+  margin-top: 48px;
+  max-height: 200px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* box-shadow: inset 0 -1px 0 #dcdcdc; */
+}
+
+#page-dashboard header a {
+  color: var(--title-color);
+  font-weight: bold;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+}
+
+#page-dashboard header a svg {
+  margin-right: 16px;
+  color: var(--primary-color);
+}
+
+#page-dashboard h1 {
+  color: #6C6C80;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+#page-dashboard .pointsContainer {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 32px;
+}

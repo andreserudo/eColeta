@@ -151,7 +151,7 @@ const CreatePoint = () => {
 
     alert('Ponto de coleta criado!');
 
-    history.push('/');
+    history.push('/dashboard');
   }
 
   return (

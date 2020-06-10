@@ -17,7 +17,32 @@
 }
 
 #page-home .content header {
+  display: flex;
   margin: 48px 0 0;
+  flex-direction: row;
+  width: 100%;
+}
+
+#page-home .content header .pontos {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-left: 50%;
+}
+
+#page-home .content header .pontos a {
+  text-decoration: none;
+}
+
+#page-home .content header .pontos strong{
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;  
+}
+
+#page-home .content header .pontos strong:hover{
+  color: #322153;
+  
 }
 
 #page-home .content main {

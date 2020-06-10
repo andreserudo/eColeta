@@ -47,7 +47,7 @@ class PointsController {
     const items = await knex('items')
       .join('point_items','items.id','=','point_items.item_id')
       .where('point_items.point_id', id)
-      .select('items.title');
+      .select('items.title', 'items.id');
 
     const serializedPoints = {
         ...point,
@@ -81,7 +81,26 @@ class PointsController {
     });
 
     return response.json(serializedPoints);
-  }  
+  }
+  
+  async showAll(request: Request, response: Response){
+
+    const points = await knex('points').select('*');
+    
+    if(!points){
+      return response.status(400).json({ message: 'Point not found'});
+    }
+
+    const serializedPoints = points.map(point => {
+      return {
+        ...point,
+        image_url: `http://localhost:3333/uploads/${point.image}`
+      }
+    });
+
+    return response.json(serializedPoints);
+
+  }
 }
 
 export default PointsController;

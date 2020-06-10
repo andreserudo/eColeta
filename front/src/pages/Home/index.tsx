@@ -11,6 +11,12 @@ const Home = () => {
       <div className="content">
         <header>
           <img src={logo} alt="Ecoleta"/>
+          <div className="pontos" >
+            <Link to="/dashboard">
+              <strong>Pontos de Coletas</strong>
+            </Link>
+            
+          </div>
         </header>
 
         <main>

@@ -16,5 +16,6 @@ routes.get('/items',itemsController.index );
 routes.get('/points/:id',pointsController.show);
 routes.post('/points', upload.single('image'), pointsController.create);
 routes.get('/points',pointsController.index);
+routes.get('/allpoints', pointsController.showAll);
 
 export default routes;
