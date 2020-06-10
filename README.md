@@ -7,3 +7,11 @@ A aplicação tem o backend desenvolvido em **NodeJs** usando o sqlite como banc
 A aplicação é um cadastro de locais para a distribuição de itens e nesse cadastro, o usuário pode selecionar uma localização no mapa, informar o estado e cidade e selecionar os tipos de itens que deseja cadastrar.
 
 ![](https://github.com/andreserudo/eColeta/blob/master/firsteColeta.gif?raw=true)
+
+## Features
+
+![](https://github.com/andreserudo/eColeta/blob/master/allPoints.gif?raw=true)
+> Criação da sessão de Pontos de Coletas e visualização dos itens em um modal
+
+![](https://github.com/andreserudo/eColeta/blob/master/addPoint.gif?raw=true)
+> Redirecionamento para listagem com todos os Pontos de Coletas
