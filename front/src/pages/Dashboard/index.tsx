@@ -23,18 +23,43 @@ interface IPoints{
   image_url  : string;
 }
 
+interface Items {
+  id: number;
+  title: string;
+}
+
 const Dashboard = () => {
   const [points, setPoints] = useState<IPoints[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [pointsModal, setPointsModal] = useState<IPoints>({} as IPoints);
 
+  const [items, setItems] = useState<Items[]>([]);
+  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+
+  // hook para obter todos os Pontos de coleta;
   useEffect(() => {
     async function loadPoints(): Promise<void>{
-      const response = await api.get('/allpoints');
+      console.log(selectedItems);
+      const response = await api.get('/points',{
+        params: {
+          items: selectedItems
+        }
+      });
 
       setPoints(response.data);              
     }
     loadPoints();
+    
+  }, [selectedItems]);
+
+  // hook para obter todos os Items
+  useEffect(() => {
+    async function loadItems(): Promise<void>{
+      const response = await api.get('/items');
+
+      setItems(response.data);
+    }
+    loadItems();
     
   }, []);
   
@@ -44,6 +69,26 @@ const Dashboard = () => {
 
   function toggleModal(): void {
     setModalOpen(!modalOpen);
+  }
+
+  function handleSelectItem(id: number){
+    const alreadySelected = selectedItems.findIndex(item => item === id);
+
+    if(alreadySelected >= 0){
+      const filteredItems = selectedItems.filter(item => item !== id);
+
+      setSelectedItems(filteredItems);
+    }else{
+
+      setSelectedItems([...selectedItems, id]);
+    }
+
+  }
+
+  function handleLimparTodos(){
+    const emptySelection : number[] = [];
+    
+    setSelectedItems(emptySelection);
   }
   
   return (
@@ -66,6 +111,28 @@ const Dashboard = () => {
         </header>
 
         <h1>Pontos de Coleta</h1>
+        <div className="listItems">
+          <h2>Filtre por Items:</h2>
+          <div className="list">
+            {items && 
+              items.map(item => (
+                <div                   
+                  key={item.id}
+                  onClick={() => handleSelectItem(item.id)}  
+                  className={selectedItems.includes(item.id)? 'outside-selected' : 'outside'}                    
+                >
+                  <p>
+                    {item.title}
+                  </p>
+                </div>
+              ))
+            }
+            <div 
+              className="limpar"
+              onClick={() => handleLimparTodos()}
+            >Limpar Todos</div>
+          </div>
+        </div>
         
         <div className="pointsContainer">
           {points &&
