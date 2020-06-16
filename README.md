@@ -8,10 +8,13 @@ A aplicação é um cadastro de locais para a distribuição de itens e nesse ca
 
 ![](https://github.com/andreserudo/eColeta/blob/master/firsteColeta.gif?raw=true)
 
-## Features
+## Personalizações
 
 ![](https://github.com/andreserudo/eColeta/blob/master/allPoints.gif?raw=true)
 > Criação da sessão de Pontos de Coletas e visualização dos itens em um modal
 
 ![](https://github.com/andreserudo/eColeta/blob/master/addPoint.gif?raw=true)
 > Redirecionamento para listagem com todos os Pontos de Coletas
+
+![](https://github.com/andreserudo/eColeta/blob/master/media/filters.gif?raw=true)
+> Aplicação de filtro por Item
